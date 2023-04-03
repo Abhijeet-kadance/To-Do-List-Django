@@ -13,6 +13,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <form method="POST" action="/">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="Feedback_FirstName" class="form-label"> Name</label>
                         {{form.Title}}
@@ -24,6 +25,7 @@
             <div class="col-sm-12 col-lg-12 text-center pt-3">
                 <h3 class="border">Task List</h3>
                 {% for task in tasks %}
+                <a href ="{% url 'update_task' task.id %}">Update</a>
                     <p>{{task}}</p>
                 {% endfor %}
             </div>
